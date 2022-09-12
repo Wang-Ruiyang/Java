@@ -5,6 +5,19 @@ public class VendingMachine {
     int balance;
     int total;
 
+    VendingMachine() {
+        total = 0;
+    }
+
+    VendingMachine(int price) {
+        this.price = price;
+    }
+
+    void setPrice(int price) {
+        this.price = price;
+        this.getFood();
+    }
+
     void showPrompt() {
         System.out.println("Welcome");
     }
@@ -27,7 +40,7 @@ public class VendingMachine {
 
     public static void main(String[] args) {
         VendingMachine vm = new VendingMachine();
-        VendingMachine vm1 = new VendingMachine();     //每个对象的属性一样但是值不一样
+        VendingMachine vm1 = new VendingMachine(100);     //每个对象的属性一样但是值不一样
         vm.showPrompt();
         vm.showBalance();
         vm.insertMoney(100);

@@ -490,6 +490,10 @@ char -> int -> double（表示如果定义为int，但是输入的是char，编�
 
 封装：把数据和对数据的操作放在一起
 
+**this：是成员函数的一个特殊的固有本地变量，它表达了调用这个函数的那个对象**
+
+在成员函数内部直接调用自己（this）的其他函数时，可以直接写函数名（可以省略this.）
+
 例：售货机
 
 ```java
@@ -499,6 +503,11 @@ public class VendingMachine {
     int price = 80;
     int balance;
     int total;
+
+    void setPrice(int price) {
+        this.price = price;
+        this.getFood();
+    }
 
     void showPrompt() {
         System.out.println("Welcome");
@@ -535,11 +544,39 @@ public class VendingMachine {
 }
 ```
 
+###  构造函数
 
+在使用类时自动调用的函数，它的**名字和类名完全相同**，没有任何返回类型
 
+### 重载
 
+一个类的多个构造函数，但是他们的输入都不同
 
-1.3
+```java
+package vendingmachine;
+
+public class VendingMachine {
+    int price = 80;
+    int balance;
+    int total;
+
+    VendingMachine() {     //构造函数
+        total = 0;
+    }
+
+    VendingMachine(int price) {    //重载
+        this.price = price;
+    }
+    
+    //其他函数
+
+    public static void main(String[] args) {
+        VendingMachine vm = new VendingMachine();
+        VendingMachine vm1 = new VendingMachine(100);
+        //...
+    }
+}
+```
 
 
 
@@ -565,5 +602,4 @@ for (int i=3;i<Math.sqrt(x);i+=2) {
     }
 }
 ```
-
 
