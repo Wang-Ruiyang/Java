@@ -413,6 +413,14 @@ s1.indexOf('a',6);
 s1.indexOf("wry");
 ```
 
+##### `.toCharArray()`将字符串转为字符数组
+
+```java
+s1.toCharArray();
+```
+
+
+
 ## Math类
 
 ### `Math.abs()`求绝对值
